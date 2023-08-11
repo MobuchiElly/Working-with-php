@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+	</head>
+	<body>
+    
+    <?php   
+
+//This project is my personal project to delve into the Classes and inheritance in php
+        class Student {
+            private $name;
+            public $age;
+            private $sex;
+            public $classIn;
+            
+            function __construct($name, $age, $sex, $classIn) {
+                $this->name = $name;
+                $this->age = $age;
+                $this->setSex($sex);
+                $this->classIn = $classIn;
+            }
+            
+            function getName() {
+                return $this->name;
+            }
+            function setName($name) {
+                $this->name = $name;
+                return $name;
+            }
+
+            function getSex() {
+                return $this->sex;
+            }
+            function setSex($sex) {
+                if ($sex == "male" || $sex == "female") {
+                    $this->sex =$sex;
+                }
+                else {
+                    echo "Invalid parameter inputed in your new object";
+                    return;
+                }
+            }
+        }
+        
+    //Teacher class has inherited the variables and methods in Student class just as is found in ReactJS
+        class Teacher extends Student {
+            
+        } 
+        $student1 = new Student("Jane", 19, "female", 12);
+        $student1-> setName("Julienne");
+        echo $student1->getName();
+        echo "<br/>";
+        
+        $teacher1 = new Teacher("Jude", 38, "male", null);
+        echo $teacher1->age;
+    ?>
+    
+	</body>	
+</html>
